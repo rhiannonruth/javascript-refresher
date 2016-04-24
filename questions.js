@@ -183,14 +183,10 @@ var squareRoot = function(number) {
 
 var factorial = function(number) {
   function _calcFactorial(n) {
-  if (n === 0) {
-    return 1;
+    if (n === 0) { return 1; }
+    return n * _calcFactorial(n - 1);
   }
-  return n * _calcFactorial(n - 1);
-}
-
-return _calcFactorial(number);
-
+  return _calcFactorial(number);
 };
 
 var findAnagrams = function(string) {
@@ -202,8 +198,12 @@ var convertToCelsius = function(number) {
 };
 
 var letterPosition = function(array) {
-  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
-  return 'Write your method here';
+  var alphabet = [0,'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+  for (i=0; i<array.length; i++) {
+    array[i] = array[i].toLowerCase();
+    array[i] = alphabet.indexOf(array[i]);
+  }
+  return array;
 };
 
 var _numIsEven = function(num) {
@@ -219,11 +219,11 @@ var _flattenArray = function(array) {
 Array.prototype._onlyUnique = function(){
    var u = {}, a = [];
    for(var i = 0, l = this.length; i < l; ++i){
-      if(u.hasOwnProperty(this[i])) {
-         continue;
-      }
-      a.push(this[i]);
-      u[this[i]] = 1;
+     if(u.hasOwnProperty(this[i])) {
+       continue;
+     }
+     a.push(this[i]);
+     u[this[i]] = 1;
    }
    return a;
 };
