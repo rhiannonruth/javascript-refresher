@@ -109,7 +109,7 @@ describe('javascriptRefresher', function(){
     expect(result).toEqual({'Jaime': 'Lannister', 'Robb': 'Stark', 'Joffrey': 'Baratheon'});
   });
 
-  xit('gets all letters in an array of words', function(){
+  it('gets all letters in an array of words', function(){
     // returns sorted
     var result = getAllLetters(['cat', 'dog', 'fish']);
     expect(result).toEqual(['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']);
@@ -118,7 +118,7 @@ describe('javascriptRefresher', function(){
     expect(result2).toEqual(['a', 'c', 'd', 'f', 'g', 'h', 'i', 'o', 's', 't']);
   });
 
-  xit('swaps keys and values in an object', function(){
+  it('swaps keys and values in an object', function(){
     var result = swapKeysAndValues({'Frodo': 'Baggins', 'Samwise': 'Gamgee', 'Gandalf': 'The Gray'});
     expect(result).toEqual({'Baggins': 'Frodo', 'Gamgee': 'Samwise', 'The Gray': 'Gandalf'});
   });
@@ -133,7 +133,7 @@ describe('javascriptRefresher', function(){
     expect(result).toEqual('ello itty');
   });
 
-  xit('rounds up a number', function(){
+  it('rounds up a number', function(){
     var result = roundUp(4.3942);
     expect(result).toEqual(5);
   });
@@ -165,7 +165,7 @@ describe('javascriptRefresher', function(){
     expect(resultTwo).toBe(true);
   });
 
-  xit('finds the square root of a number', function(){
+  it('finds the square root of a number', function(){
     var resultOne = squareRoot(9);
     var resultTwo = squareRoot(3);
 
@@ -173,7 +173,7 @@ describe('javascriptRefresher', function(){
     expect(resultTwo).toEqual(1.7320508075688772);
   });
 
-  xit('finds the factorial of a number', function(){
+  it('finds the factorial of a number', function(){
     var result = factorial(5);
     expect(result).toEqual(120); // = 5 * 4 * 3 * 2 * 1
   });
@@ -191,7 +191,7 @@ describe('javascriptRefresher', function(){
     }
   });
 
-  xit('converts Fahrenheit to Celsius rounding to the nearest integer', function(){
+  it('converts Fahrenheit to Celsius rounding to the nearest integer', function(){
     var resultOne = convertToCelsius(32);
     var resultTwo = convertToCelsius(55);
 

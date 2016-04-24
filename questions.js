@@ -38,7 +38,12 @@ var everyPossiblePair = function(array) {
   //     }
   //   }
   // }
-  // return pairs.sort();
+  // console.log(pairs);
+  // for (var k=0; k<array.length; k++) {
+  //   pairs[k].sort();
+  // }
+  // console.log(pairs);
+  // return pairs.sort()._onlyUnique();
 };
 
 var allElementsExceptFirstThree = function(array) {
@@ -123,17 +128,29 @@ var convertArrayToObject = function(array) {
 };
 
 var getAllLetters = function(array) {
-  // return array.map(function(string){
-  //   string.split('');
-  // });
+  var arr = [];
+  for (var i = 0; i < array.length; i++) {
+    arr.push(array[i].split(''));
+  }
+  return _flattenArray(arr).sort()._onlyUnique();
 };
 
 var swapKeysAndValues = function(object) {
-  return 'Write your method here';
+  var result = {};
+  for (var key in object) {
+    result[object[key]] = key;
+  }
+  return result;
 };
 
 var sumKeysAndValues = function(object) {
-  return 'Write your method here';
+  // console.log(object);
+  // var sum = 0;
+  // for (var key in object) {
+  //   sum += key;
+  //   sum += object[key];
+  // }
+  // return sum;
 };
 
 var removeCapitals = function(string) {
@@ -141,7 +158,7 @@ var removeCapitals = function(string) {
 };
 
 var roundUp = function(number) {
-  return 'Write your method here';
+  return Math.ceil(number);
 };
 
 var formatDateNicely = function(date) {
@@ -149,23 +166,31 @@ var formatDateNicely = function(date) {
 };
 
 var getDomainName = function(string) {
-  return 'Write your method here';
+  // return string.match(/(?<=@)(.*)/);
 };
 
 var titleize = function(string) {
-  return 'Write your method here';
+
 };
 
 var checkForSpecialCharacters = function(string) {
-  return 'Write your method here';
+
 };
 
 var squareRoot = function(number) {
-  return 'Write your method here';
+  return Math.sqrt(number);
 };
 
 var factorial = function(number) {
-  return 'Write your method here';
+  function _calcFactorial(n) {
+  if (n === 0) {
+    return 1;
+  }
+  return n * _calcFactorial(n - 1);
+}
+
+return _calcFactorial(number);
+
 };
 
 var findAnagrams = function(string) {
@@ -173,13 +198,32 @@ var findAnagrams = function(string) {
 };
 
 var convertToCelsius = function(number) {
-  return 'Write your method here';
+  return Math.round((number-32)*(5/9));
 };
 
 var letterPosition = function(array) {
+  var alphabet = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
   return 'Write your method here';
 };
 
 var _numIsEven = function(num) {
   return num % 2 === 0;
+};
+
+var _flattenArray = function(array) {
+  return array.reduce(function(a, b) {
+    return a.concat(b);
+  }, []);
+};
+
+Array.prototype._onlyUnique = function(){
+   var u = {}, a = [];
+   for(var i = 0, l = this.length; i < l; ++i){
+      if(u.hasOwnProperty(this[i])) {
+         continue;
+      }
+      a.push(this[i]);
+      u[this[i]] = 1;
+   }
+   return a;
 };
